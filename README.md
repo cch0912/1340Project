@@ -63,7 +63,7 @@ We will then be directed back to the main menu and enter option B.
 
 For option B, we can see if the tables are being occupied, reserved or vacant. The heading and the function will be explained later.
 > [Option B] entered
-
+>
 >                  Status     Dining time     Reserved time     Queue
 > - Table 1 [2]    vacant       --:--:--          --:--           0
 > - Table 2 [2]    vacant       --:--:--          --:--           0
@@ -163,6 +163,7 @@ For option A, customers can see the dishes being served at the restaurant and de
 > Back to main menu
 
 We will then be directed back to the main menu and enter option B.
+
 > [Customer mode] Hello chowchunho123!
 > *Main menu*
 > - Check today’s dishes ------- A
@@ -176,8 +177,10 @@ For option B, customers can check the current table situation, whether the table
 “Occupied” means that there are customers still eating at that table. The “Dining time” shows how long the customers have been staying at that table.
 “Reserved” means that the table was vacant but a customer has ‘pre-occupied’ the table. He or she will be given 10 minutes before arriving the restaurant. If the reserved time counts to 0, the reserevd table will be released for other customers.
 “Queue” shows how many customers are queuing for that table. If we take the following as an example, when customers at Table 5 finished their meal, table 5 will be released. Since there is already a customer queuing for table 5, it will be reserved for that particular customer and the reserved time will start to count down.
+
 > [Option B] entered
-> -              Status       Dining time     Reserved time     Queue
+>
+>                Status       Dining time     Reserved time     Queue
 > - Table 1 [2]  occupied       00:23:13          --:--           2
 > - Table 2 [2]  occupied       00:46:23          --:--           1
 > - Table 3 [2]  occupied       01:12:13          --:--           1
