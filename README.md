@@ -64,21 +64,13 @@ We will then be directed back to the main menu and enter option B.
 For option B, we can see if the tables are being occupied, reserved or vacant. The heading and the function will be explained later.
 > [Option B] entered
 > -                Status     Dining time     Reserved time     Queue
-
 > - Table 1 [2]    vacant       --:--:--          --:--           0
-
 > - Table 2 [2]    vacant       --:--:--          --:--           0
-
 > - Table 3 [2]    vacant       --:--:--          --:--           0
-
 > - Table 4 [4]    vacant       --:--:--          --:--           0
-
 > - Table 5 [4]    vacant       --:--:--          --:--           0
-
 > - Table 6 [4]    vacant       --:--:--          --:--           0
-
 > - Table 7 [6]    vacant       --:--:--          --:--           0
-
 > - Table 8 [6]    vacant       --:--:--          --:--           0
 
 > Press E to exit [Option B]: E
@@ -153,15 +145,15 @@ Then, since the user is not ‘CCH restaurant’, he or she will be in the custo
 For option A, customers can see the dishes being served at the restaurant and decide whether they want to go to eat.
 > [Option A] entered
 > Today’s Dishes
-> Set A: Yeung Chow Fried Rice
-> Set B: Seafood Fried Rice with Curry Sauce
-> Set C: Ham Fried Rice with Tomato Sauce
-> Set D: Fried Noodle with Beef in Black Bean Sauce
-> Set E: Fried Rice Noodle with Beef in Soy
-> Set F: Fried Noodle with Mixed Vegetables
-> Set G: Baked Fish Fillet with Cream Sauce
-> Set H: Baked Pork Chop with Tomato Sauce
-> Set I: Baked Seafood with Cream Sauce
+> - Set A: Yeung Chow Fried Rice
+> - Set B: Seafood Fried Rice with Curry Sauce
+> - Set C: Ham Fried Rice with Tomato Sauce
+> - Set D: Fried Noodle with Beef in Black Bean Sauce
+> - Set E: Fried Rice Noodle with Beef in Soy
+> - Set F: Fried Noodle with Mixed Vegetables
+> - Set G: Baked Fish Fillet with Cream Sauce
+> - Set H: Baked Pork Chop with Tomato Sauce
+> - Set I: Baked Seafood with Cream Sauce
 
 > Press E to exit: E
 
@@ -184,15 +176,15 @@ For option B, customers can check the current table situation, whether the table
 “Reserved” means that the table was vacant but a customer has ‘pre-occupied’ the table. He or she will be given 10 minutes before arriving the restaurant. If the reserved time counts to 0, the reserevd table will be released for other customers.
 “Queue” shows how many customers are queuing for that table. If we take the following as an example, when customers at Table 5 finished their meal, table 5 will be released. Since there is already a customer queuing for table 5, it will be reserved for that particular customer and the reserved time will start to count down.
 > [Option B] entered
->                Status     Dining time     Reserved time     Queue
-> Table 1 [2]  occupied       00:23:13          --:--           2
-> Table 2 [2]  occupied       00:46:23          --:--           1
-> Table 3 [2]  occupied       01:12:13          --:--           1
-> Table 4 [4]  reserved       --:--:--          08:56           0
-> Table 5 [4]  occupied       02:03:45          --:--           1
-> Table 6 [4]    vacant       --:--:--          --:--           0
-> Table 7 [6]  occupied       00:35:24          --:--           1
-> Table 8 [6]  occupied       00:04:59          --:--           1
+> -              Status       Dining time     Reserved time     Queue
+> - Table 1 [2]  occupied       00:23:13          --:--           2
+> - Table 2 [2]  occupied       00:46:23          --:--           1
+> - Table 3 [2]  occupied       01:12:13          --:--           1
+> - Table 4 [4]  reserved       --:--:--          08:56           0
+> - Table 5 [4]  occupied       02:03:45          --:--           1
+> - Table 6 [4]    vacant       --:--:--          --:--           0
+> - Table 7 [6]  occupied       00:35:24          --:--           1
+> - Table 8 [6]  occupied       00:04:59          --:--           1
 
 > Press E to exit [Option B]: E
 
