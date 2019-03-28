@@ -61,17 +61,24 @@ We will then be directed back to the main menu and enter option B.
 
 >  Option: B 
 
-For option B, we can see if the tables are being occupied, reserved or vacant.
-The heading and the function will be explained later.
+For option B, we can see if the tables are being occupied, reserved or vacant. The heading and the function will be explained later.
 > [Option B] entered
 > -                Status     Dining time     Reserved time     Queue
+
 > - Table 1 [2]    vacant       --:--:--          --:--           0
+
 > - Table 2 [2]    vacant       --:--:--          --:--           0
+
 > - Table 3 [2]    vacant       --:--:--          --:--           0
+
 > - Table 4 [4]    vacant       --:--:--          --:--           0
+
 > - Table 5 [4]    vacant       --:--:--          --:--           0
+
 > - Table 6 [4]    vacant       --:--:--          --:--           0
+
 > - Table 7 [6]    vacant       --:--:--          --:--           0
+
 > - Table 8 [6]    vacant       --:--:--          --:--           0
 
 > Press E to exit [Option B]: E
