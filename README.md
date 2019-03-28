@@ -1,4 +1,4 @@
-## 1340Project
+# 1340Project
 Suppose we are operating a very popular restaurant with many customers queuing outside waiting for seats. Our project is to introduce a program that allows customers to can reserve a vacant table or queue up for an occupied table before arriving the restaurant. 
 
 First, the program will require users to enter a valid account. 
@@ -17,7 +17,8 @@ Login interface should look like this:
 
 > [Login success]
 
-The ADMIN MODE will be discussed first.
+
+**The ADMIN MODE will be discussed first.**
 > [Admin mode] Hello CCH Restaurant!
 > *Main menu*
 > - Input table size --------- A
@@ -111,8 +112,9 @@ The restaurant can blacklist customers by entering their account names. Then, th
 > Back to main menu
 
  
-Now, we will discuss the CUSTOMERS MODE. 
-Supposedly, a customer has to create an account.
+**Now, we will discuss the CUSTOMERS MODE. 
+Supposedly, a customer has to create an account.**
+
 > ******************************************************************
 > ********************Welcome to CCH Restaurant!********************
 > ******************************************************************
