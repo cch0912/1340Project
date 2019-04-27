@@ -35,15 +35,25 @@ For option A, we can change the number of tables and the size of tables.
 
 We will then enter a for loop of 8 to input the size of tables.
 > [Option A] entered
+
 > Please input the number of tables: 8
+
 > Input size of table 1: 2
+
 > Input size of table 2: 2
+
 > Input size of table 3: 2
+
 > Input size of table 4: 4
+
 > Input size of table 5: 4
+
 > Input size of table 6: 4
+
 > Input size of table 7: 6
+
 > Input size of table 8: 6
+
 
 > Press E to exit [Option A]: E
 
