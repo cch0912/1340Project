@@ -21,10 +21,10 @@ Login interface should look like this:
 **The ADMIN MODE will be discussed first.**
 > [Admin mode] Hello CCH Restaurant!
 > *Main menu*
-> - Input table size --------- A
-> - Modify tables ------------ B
-> - Report situation --------- C
-> - Blacklist customers ------ D
+> - Input table information --------- A
+> - Modify tables ------------------- B
+> - Blacklist customers ------------- C
+> - Exit ---------------------------- E
 
 >  Option: A 
 
@@ -54,25 +54,25 @@ We will then enter a for loop of 8 to input the size of tables.
 We will then be directed back to the main menu and enter option B.
 > [Admin mode] Hello CCH restaurant!
 > *Main menu*
-> - Input table size --------- A
-> - Modify tables  ----------- B
-> - Report situation --------- C
-> - Blacklist customers ------ D
+> - Input table information --------- A
+> - Modify tables ------------------- B
+> - Blacklist customers ------------- C
+> - Exit ---------------------------- E
 
 >  Option: B 
 
-For option B, we can see if the tables are being occupied, reserved or vacant. The heading and the function will be explained later.
+For option B, we can see if the tables are being occupied or vacant.
 > [Option B] entered
 >
->                  Status     Dining time     Reserved time     Queue
-> - Table 1 [2]    vacant       --:--:--          --:--           0
-> - Table 2 [2]    vacant       --:--:--          --:--           0
-> - Table 3 [2]    vacant       --:--:--          --:--           0
-> - Table 4 [4]    vacant       --:--:--          --:--           0
-> - Table 5 [4]    vacant       --:--:--          --:--           0
-> - Table 6 [4]    vacant       --:--:--          --:--           0
-> - Table 7 [6]    vacant       --:--:--          --:--           0
-> - Table 8 [6]    vacant       --:--:--          --:--           0
+>           Size    Status    
+> - Table 1  2      vacant    
+> - Table 2  2      vacant    
+> - Table 3  2      vacant    
+> - Table 4  4      vacant    
+> - Table 5  4      vacant    
+> - Table 6  4      vacant    
+> - Table 7  6      vacant      
+> - Table 8  6      vacant      
 
 > Press E to exit [Option B]: E
 
@@ -83,31 +83,20 @@ For option B, we can see if the tables are being occupied, reserved or vacant. T
 We will then be directed back to the main menu and enter option C.
 > [Admin mode] Hello CCH restaurant!
 > *Main menu*
-> - Input table size --------- A
-> - Modify tables ------------ B
-> - Report situation --------- C
-> - Blacklist customers ------ D
+> - Input table information --------- A
+> - Modify tables ------------------- B
+> - Blacklist customers ------------- C
+> - Exit ---------------------------- E
 
 >  Option: C
 
-For option C, we can release a table, notify waiters for tables that have been occupied for too long, report emergencies, etc
-
-We will then be directed back to the main menu and enter option D.
-> [Admin mode] Main menu
-> - Input table size --------- A
-> - Modify tables ------------ B
-> - Report situation --------- C
-> - Blacklist customers ------ D
-
->  Option: D
-
 The restaurant can blacklist customers by entering their account names. Then, the customers will no longer be allowed to use this program to reserve table.
-> [Option D] entered
+> [Option C] entered
 > Blacklist user: chantaiman123
 
 > Press E to exit: E
 
-> Exiting [Option D]
+> Exiting [Option C]
 
 > Back to main menu
 
@@ -173,22 +162,20 @@ We will then be directed back to the main menu and enter option B.
 
 >  Option: B
 
-For option B, customers can check the current table situation, whether the tables are occupied, reserved or vacant.
-“Occupied” means that there are customers still eating at that table. The “Dining time” shows how long the customers have been staying at that table.
-“Reserved” means that the table was vacant but a customer has ‘pre-occupied’ the table. He or she will be given 10 minutes before arriving the restaurant. If the reserved time counts to 0, the reserevd table will be released for other customers.
-“Queue” shows how many customers are queuing for that table. If we take the following as an example, when customers at Table 5 finished their meal, table 5 will be released. Since there is already a customer queuing for table 5, it will be reserved for that particular customer and the reserved time will start to count down.
+For option B, customers can check the current table situation, whether the tables are occupied or vacant.
+“Occupied” means that there are customers still eating at that table. 
 
 > [Option B] entered
 >
->                Status       Dining time     Reserved time     Queue
-> - Table 1 [2]  occupied       00:23:13          --:--           2
-> - Table 2 [2]  occupied       00:46:23          --:--           1
-> - Table 3 [2]  occupied       01:12:13          --:--           1
-> - Table 4 [4]  reserved       --:--:--          08:56           0
-> - Table 5 [4]  occupied       02:03:45          --:--           1
-> - Table 6 [4]    vacant       --:--:--          --:--           0
-> - Table 7 [6]  occupied       00:35:24          --:--           1
-> - Table 8 [6]  occupied       00:04:59          --:--           1
+>           Size    Status    
+> - Table 1  2      vacant    
+> - Table 2  2      vacant    
+> - Table 3  2      vacant    
+> - Table 4  4      vacant    
+> - Table 5  4      vacant    
+> - Table 6  4      vacant    
+> - Table 7  6      vacant      
+> - Table 8  6      vacant      
 
 > Press E to exit [Option B]: E
 
@@ -196,7 +183,7 @@ For option B, customers can check the current table situation, whether the table
 
 > Back to Main menu
 
-Now, if customers see that table 6 is currently vacant and they want to reserve or 'pre-occupy' table 6 before arriving the restaurant. He or she should enter option C and occupy that table.
+Now, if customers see that table 6 is currently vacant and they want to reserve table 6 before arriving the restaurant. He or she should enter option C and occupy that table.
 > [Customer mode] Hello chowchunho123!
 > *Main menu*
 > - Check today’s dishes ------- A
@@ -205,8 +192,10 @@ Now, if customers see that table 6 is currently vacant and they want to reserve 
 > - Release a table ------------ D
 
 >  Option: C
-For option C, customers will input the number of people. The program will suggest a vacant table with minimal enough seats to the customer. If there is no vacant table, the program will suggest the customer to queue for a table.
-Example 1.1: 2 people, the program will suggest him to queue for table 3 as the current dining time is the longest, it should be vacant sooner than the ohter tables.
+For option C, customers will input the number of people. The program will suggest a vacant table with minimal enough seats to the customer. If there is no vacant table, the program will tell the customer that there are no tables and ask them to come back later.
+
+Example 1.1: 2 people, the program will suggest him to occupy a particular table, and see if they confirm their reservation.
+
 > [Option C] entered
 > Please enter the number of people: 2
 
@@ -214,7 +203,7 @@ Example 1.1: 2 people, the program will suggest him to queue for table 3 as the 
 
 > Please indicate your choice (Yes/No): Yes
 
-> You are queuing for table 3 at the 2nd position.
+> You have successfully occupied table 3.
 
 > Press E to exit: E
 
@@ -222,11 +211,11 @@ Example 1.1: 2 people, the program will suggest him to queue for table 3 as the 
 
 > Back to main menu
 
-Example 1.2:
+Example 1.2: 2 people, but they choose to not reserve the table.
 > [Option C] entered
 > Please enter the number of people: 2
 
-> CCH restaurant suggests you to queue for table 3!
+> CCH restaurant suggests you to reserve table 3!
 
 > Please indicate your choice (Yes/No): No
 
@@ -236,22 +225,18 @@ Example 1.2:
 
 > Back to main menu
 
-Example 2: 4 people, the program suggests the customer to pre-occupy table 6 since it is vacant.
+Example 2: All tables are occupied.
 > [Option C] entered
-> Please enter the number of people: 4
 
-> CCH restaurant suggests you to pre-occupy table 6!
+> "Sorry there is no vacant table so far."
 
-> Please indicate your choice (Yes/No): Yes
-
-> Table 6 has been reserved for you for 10 minutes.
+> "Please come back after a while."
 
 > Press E to exit: E
 
 > Exiting [Option C]
 
 > Back to main menu
-If there are 6 people, the program will suggest him to queue for table 7 according to the above logic.
 
 We will then go back to the main menu and enter option D.
 > [Customer mode] Hello chowchunho123!
@@ -263,11 +248,12 @@ We will then go back to the main menu and enter option D.
 
 >  Option: D
 
-For option D, if the customer has been waiting too long and want to give up waiting, he can release the table or quit the queue.
+For option D, if the customer wants to give up their table, they can do it.
 
-Example 1: Giving up the queue for table 3. Then, the queue number in [option B] will be reduced by 1.
+Example 1: Giving up table 3. Then, the table will become vacant.
 > [Option D] entered
-> You are now queuing for table 3 in the 2nd position.
+
+> Please enter the table number to release:
 
 > Are you sure you want to release table 3? (Yes/No): Yes
 
@@ -277,11 +263,11 @@ Example 1: Giving up the queue for table 3. Then, the queue number in [option B]
 
 > Back to main menu
 
-Example 2: Pre-occupied table 6 and table 6 is reserved for tha customer. Then, if we check the tables occupation in [option B], table 6 will become vacant.
+Example 2: They decided to not give up the table.
 > [Option D] entered
-> You are now reserving table 6.
+> Please enter the table number to release:
 
-> Are you sure you want to release table 6? (Yes/No): Yes
+> Are you sure you want to release table 3? (Yes/No): No
 
 > Press E to exit: E
 
