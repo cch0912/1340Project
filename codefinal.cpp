@@ -378,3 +378,76 @@ void customer_optionF() {
 
 
  
+  tables *current=head;
+  cout << setw(13) << "Size" << setw(9) << "Status" << endl;
+  int table_num,size;
+  string status;
+  while (current!=NULL) {
+    table_num=current->table_num;
+    size=current->size;
+    status=current->status;
+    cout << "Table " << table_num << setw(5) << size << setw(10) << status << endl;
+    current=current->next;
+  }
+  cout << endl;
+}
+
+// (COMPLETE)
+// read users from customers_account.txt
+// find the match user
+// delete the user's account
+void admin_optionC() {
+  string user,exit;
+  cout << "[Option C] entered" << endl;
+  cout << "Please input blacklist user: ";
+  cin >> user;
+  add_blacklist(user);
+  cout << endl << "Press E to exit: ";
+  cin >> exit;
+  cout << "Exiting [Option D]" << endl;
+  cout << "Back to main menu" << endl << endl;
+}
+
+// (COMPLETE)
+// add the user in a file called blacklist.txt
+// in the login process, if the account name is in customers_account.txt, while not in blacklist.txt,
+// if the password is correct, then login success
+void add_blacklist(string user) {
+  ofstream fout;
+  fout.open("blacklist.txt",ios::app);
+  if (fout.fail()) {
+    cout << "Failed in opening blacklist.txt" << endl;
+  }
+  fout << user << endl;
+  fout.close();
+}
+
+// (COMPLETE)
+// this function is to view complaint
+// read in the complaint.txt file
+// print the complaints in it by lines
+void admin_optionD() {
+  ifstream fin;
+  fin.open("complaint.txt");
+  if (fin.fail()) {
+    cout << "Failed to open complaint.txt" << endl;
+  }
+  string line,exit;
+  cout << "Complaints are as follow: " << endl;
+  while (getline(fin,line)) {
+    cout << line << endl;
+  }
+  cout << endl << "Press E to exit: ";
+  cin >> exit;
+  cout << "Exiting [Option D]" << endl;
+  cout << "Back to main menu" << endl << endl;
+  fin.close();
+  ofstream fout;
+  fout.open("complaint.txt");
+  if (fout.fail()) {
+    cout << "Failed to open complaint.txt" << endl;
+  }
+  string blank_text="";
+  fout << blank_text;
+  fout.close();
+}
