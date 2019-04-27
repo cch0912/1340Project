@@ -1,0 +1,8 @@
+1 2 vacant
+2 2 vacant
+3 2 vacant
+4 4 vacant
+5 4 vacant
+6 4 vacant
+7 6 occupy
+8 6 vacant

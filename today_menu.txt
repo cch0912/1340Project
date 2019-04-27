@@ -1,0 +1,9 @@
+Set A: Yeung Chow Fried Rice
+Set B: Seafood Fried Rice with Curry Sauce
+Set C: Ham Fried Rice with Tomato Sauce
+Set D: Fried Noodle with Beef in Black Bean Sauce
+Set E: Fried Rice Noodle with Beef in Soy
+Set F: Fried Noodle with Mixed Vegetables
+Set G: Baked Fish Fillet with Cream Sauce
+Set H: Baked Pork Chop with Tomato Sauce
+Set I: Baked Seafood with Cream Sauce
