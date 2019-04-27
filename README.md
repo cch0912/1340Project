@@ -24,6 +24,7 @@ Login interface should look like this:
 > - Input table information --------- A
 > - Modify tables ------------------- B
 > - Blacklist customers ------------- C
+> - View complaints ------------------D
 > - Exit ---------------------------- E
 
 >  Option: A 
@@ -67,6 +68,7 @@ We will then be directed back to the main menu and enter option B.
 > - Input table information --------- A
 > - Modify tables ------------------- B
 > - Blacklist customers ------------- C
+> - View complaints ------------------D
 > - Exit ---------------------------- E
 
 >  Option: B 
@@ -96,6 +98,7 @@ We will then be directed back to the main menu and enter option C.
 > - Input table information --------- A
 > - Modify tables ------------------- B
 > - Blacklist customers ------------- C
+> - View complaints ------------------D
 > - Exit ---------------------------- E
 
 >  Option: C
@@ -107,6 +110,17 @@ The restaurant can blacklist customers by entering their account names. Then, th
 > Press E to exit: E
 
 > Exiting [Option C]
+
+> Back to main menu
+
+For option D, the restaurant can view the complaints made by customers.
+> [Option D] entered
+> Complaints are as follows:
+table 2 has been occupied for a long time!
+
+> Press E to exit: E
+
+> Exit [Option D]
 
 > Back to main menu
 
@@ -140,6 +154,7 @@ Then, since the user is not ‘CCH restaurant’, he or she will be in the custo
 > - Pre-occupy a table --------- C
 > - Release a table ------------ D
 > - Exit ----------------------- E
+> - Complaint ------------------ F
 
 >  Option: A
 
@@ -170,6 +185,8 @@ We will then be directed back to the main menu and enter option B.
 > - Check tables occupation ---- B
 > - Pre-occupy a table --------- C
 > - Release a table ------------ D
+> - Exit ----------------------- E
+> - Complaint ------------------ F
 
 >  Option: B
 
@@ -199,8 +216,10 @@ Now, if customers see that table 6 is currently vacant and they want to reserve 
 > *Main menu*
 > - Check today’s dishes ------- A
 > - Check tables occupation ---- B
-> - Occupy a table ------------- C
+> - Pre-occupy a table --------- C
 > - Release a table ------------ D
+> - Exit ----------------------- E
+> - Complaint ------------------ F
 
 >  Option: C
 For option C, customers will input the number of people. The program will suggest a vacant table with minimal enough seats to the customer. If there is no vacant table, the program will tell the customer that there are no tables and ask them to come back later.
@@ -254,8 +273,10 @@ We will then go back to the main menu and enter option D.
 > *Main menu*
 > - Check today’s dishes ------- A
 > - Check tables occupation ---- B
-> - Occupy a table ------------- C
+> - Pre-occupy a table --------- C
 > - Release a table ------------ D
+> - Exit ----------------------- E
+> - Complaint ------------------ F
 
 >  Option: D
 
@@ -287,5 +308,17 @@ Example 2: They decided to not give up the table.
 > Back to main menu
 
 
+For option F, the customer can complaint or report situation, like notify the waiter for tables occupied for too long.
+> [Option F] entered
+> Please input your complaint:
+table 2 has been occupied for a long time
+
+> Thank you for your opinion. We will view your comment as soon as possible!
+
+> Press E to exit: E
+
+> Exiting [Option F]
+
+> Back to main menu
 
 
