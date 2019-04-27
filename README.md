@@ -74,7 +74,7 @@ We will then be directed back to the main menu and enter option B.
 For option B, we can see if the tables are being occupied or vacant.
 > [Option B] entered
 >
->           Size    Status    
+>           Size  Status    
 > - Table 1  2      vacant    
 > - Table 2  2      vacant    
 > - Table 3  2      vacant    
@@ -139,6 +139,7 @@ Then, since the user is not ‘CCH restaurant’, he or she will be in the custo
 > - Check tables occupation ---- B
 > - Pre-occupy a table --------- C
 > - Release a table ------------ D
+> - Exit ----------------------- E
 
 >  Option: A
 
