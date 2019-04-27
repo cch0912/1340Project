@@ -198,3 +198,315 @@ void customer_optionA() {
   string set,exit;
   while (getline(menu,set)) {
     cout << set << endl;
+  }
+  cout << endl << "Press E to exit: ";
+  cin >> exit;
+  cout << "Back to main menu" << endl << endl;
+  menu.close();
+}
+
+// (COMPLETE)
+// print the table information in regular format
+// similar to admin_optionB()
+void customer_optionB() {
+  ifstream fin;
+  fin.open("table_information.txt");
+  if (fin.fail()) {
+    cout << "Failed to open table_information.txt" << endl;
+  }
+  string line,yes_or_no,exit;
+  tables_head=NULL;
+  while (getline(fin,line)) {
+    int table_num,size;
+    string status;
+    table_num=line[0]-'0';
+    size=line[2]-'0';
+    status=line.substr(4,6);
+    append_tables(tables_head,table_num,size,status);
+  }
+  fin.close();
+  cout << "[Option B] entered" << endl << endl;
+  print_table_information(tables_head);
+  cout << "Press E to exit [Option B]: ";
+  cin >> exit;
+  cout << "Exiting [Option B]" << endl;
+  cout << "Back to main menu" << endl << endl;
+}
+
+// (COMPLETE)
+// this function suggest a vacant table with minimal seats
+// if there is vacant table, return the table_num
+// if all the tables are occupied, return -1
+// occupy_table turns that status of that table from "vacant" to "occupy"
+void customer_optionC() {
+  int vacant_table_num,num_of_ppl;
+  string choice,exit;
+  cout << "[Option C] entered" << endl;
+  cout << "Please enter the number of people: ";
+  cin >> num_of_ppl;
+  vacant_table_num=search_for_most_fit_table(tables_head,num_of_ppl);
+  if (vacant_table_num>0) {
+    cout << endl << "CCH restaurant suggests you to occupy table " << vacant_table_num << "!" << endl;
+    cout << endl << "Please enter your choice (Yes/No): ";
+    cin >> choice;
+    cout << endl;
+    if (choice=="Yes") {
+      occupy_table(tables_head,vacant_table_num);
+      print_table_information(tables_head);
+      cout << "You have successfully occupied table " << vacant_table_num << "." << endl << endl;
+    }
+  }
+  else {
+    cout << endl;
+    print_table_information(tables_head);
+    cout << "Sorry there is no vacant table so far." << endl;
+    cout << "Please come back after a while." << endl << endl;
+  }
+  cout << "Press E to exit: ";
+  cin >> exit;
+  cout << "Exiting [Option C]" << endl;
+  cout << "Back to main menu" << endl << endl;
+}
+
+// (COMPLETE)
+// search for table that the table size >= num_of_ppl
+// if no table suits, return -1
+int search_for_most_fit_table(tables *&head,int num_of_ppl) {
+  tables *current=head;
+  while (current!=NULL) {
+    if (current->size>=num_of_ppl && current->status=="vacant") {
+      return current->table_num;
+    }
+    current=current->next;
+  }
+  return -1;
+}
+
+// (COMPLETE)
+// turns the status of that table from "vacant" to "occupy"
+// update the table_information.txt
+void occupy_table(tables *&head,int vacant_table_num) {
+  int steps=vacant_table_num-1;
+  tables *current=head;
+  for (int k=0;k<steps;k+=1) {
+    current=current->next;
+  }
+  current->status="occupy";
+  rewrite_table_information(tables_head);
+}
+
+// (COMPLETE)
+void rewrite_table_information(tables *&head) {
+  ofstream fout;
+  fout.open("table_information.txt");
+  if (fout.fail()) {
+    cout << "Failed to open table_information.txt" << endl;
+  }
+  tables *current=head;
+  int table_num,size;
+  string status;
+  while (current!=NULL) {
+    table_num=current->table_num;
+    size=current->size;
+    status=current->status;
+    fout << table_num << " " << size << " " << status << endl;
+    current=current->next;
+  }
+  fout.close();
+}
+
+// (COMPLETE)
+// this function is to release the table occupied
+void customer_optionD() {
+  int table_to_be_release;
+  string yes_or_no,exit;
+  cout << "[Option D] entered" << endl;
+  cout << "Please enter the table number to release: ";
+  cin >> table_to_be_release;
+  cout << "Are you sure to release table " << table_to_be_release << "? (Yes/No): ";
+  cin >> yes_or_no;
+  if (yes_or_no=="Yes") {
+    release_table(tables_head,table_to_be_release);
+  }
+  cout << endl << "Press E to exit: ";
+  cin >> exit;
+  cout << "Exiting [Option D]" << endl;
+  cout << "Back to main menu" << endl << endl;
+}
+
+
+// ---------------[Admin mode]---------------
+
+// (COMPLETE)
+void admin_mode() {
+  string option="";
+  while (option!="E") {
+    cout << "[Admin mode] Hello CCH Restaurant!" << endl;
+    cout << "*main menu*" << endl;
+    cout << "- Input table information ------ A" << endl;
+    cout << "- Modify tables ---------------- B" << endl;
+    cout << "- Blacklist customers ---------- C" << endl;
+    cout << "- Exit ------------------------- E" << endl;
+    cout << "-> Option: ";
+    cin >> option;
+    cout << endl;
+    if (option=="A") {
+      admin_optionA();
+    }
+    else if (option=="B") {
+      admin_optionB();
+    }
+    else if (option=="C") {
+      admin_optionC();
+    }
+  }
+  cout << "Bye bye!" << endl;
+}
+
+// (COMPLETE)
+// Open "table_information.txt", that erase the old infomration
+// output the new table information to "table_information.txt"
+void admin_optionA() {
+  cout << "[Option A] entered" << endl;
+  int num_of_tables;
+  string status="vacant",exit;
+  cout << "Please input the number of tables: ";
+  cin >> num_of_tables;
+  ofstream fout;
+  fout.open("table_information.txt");
+  if (fout.fail()) {
+    cout << "Failed to open table_information.txt" << endl;
+  }
+  for (int n=1;n<=num_of_tables;n+=1) {
+    int size;
+    cout << "Input size of table " << n << ": ";
+    cin >> size;
+    fout << n << " " << size << " " << status << endl;
+  }
+  fout.close();
+  cout << endl << "Press E to exit: ";
+  cin >> exit;
+  cout << "Exiting [Option A]" << endl;
+  cout << "Back to main menu" << endl << endl;
+}
+
+
+// (COMPLETE)
+// read in data from table_information.txt
+// store data to struct called "tables"
+// print the data in regular format
+// if "release table", status of that table will turn from "occupied" to "vacant"
+void admin_optionB() {
+  ifstream fin;
+  fin.open("table_information.txt");
+  if (fin.fail()) {
+    cout << "Failed to open table_information.txt" << endl;
+  }
+  string line,yes_or_no,exit;
+  tables_head=NULL;
+  while (getline(fin,line)) {
+    int table_num,size;
+    string status;
+    table_num=line[0]-'0';
+    size=line[2]-'0';
+    status=line.substr(4,6);
+    append_tables(tables_head,table_num,size,status);
+  }
+  fin.close();
+  cout << "[Option B] entered" << endl << endl;
+  print_table_information(tables_head);
+  cout << "Release table? (Yes/No): ";
+  cin >> yes_or_no;
+  if (yes_or_no=="Yes") {
+    int table_to_be_release;
+    cout << "Please input table number: ";
+    cin >> table_to_be_release;
+    release_table(tables_head,table_to_be_release);
+    cout << "Table " << table_to_be_release << " successfully released." << endl << endl;
+    print_table_information(tables_head);
+  }
+  cout << "Press E to exit [Option B]: ";
+  cin >> exit;
+  cout << "Exit [Option B]" << endl;
+  cout << "Back to main menu" << endl << endl;
+}
+
+// (COMPLETE)
+// turn the status of that table from "occupied" to "vacant"
+void release_table(tables *&head,int table_to_be_release) {
+  int tranverse_times=table_to_be_release-1;
+  tables *current=head;
+  for (int j=0;j<tranverse_times;j+=1) {
+    current=current->next;
+  }
+  current->status="vacant";
+  rewrite_table_information(tables_head);
+}
+
+// (COMPLETE)
+// build a linked list called "tables" in forward manner, with head only
+void append_tables(tables *&head,int table_num,int size,string status) {
+  tables *p=new tables;
+  p->table_num=table_num;
+  p->size=size;
+  p->status=status;
+  p->next=NULL;
+  if (head==NULL) {
+    head=p;
+  }
+  else {
+    tables *current=head;
+    while (current->next!=NULL) {
+      current=current->next;
+    }
+    current->next=p;
+  }
+}
+
+// (COMPLETE)
+// print out the table information in regular format
+void print_table_information(tables *&head) {
+  tables *current=head;
+  cout << setw(13) << "Size" << setw(9) << "Status" << endl;
+  int table_num,size;
+  string status;
+  while (current!=NULL) {
+    table_num=current->table_num;
+    size=current->size;
+    status=current->status;
+    cout << "Table " << table_num << setw(5) << size << setw(10) << status << endl;
+    current=current->next;
+  }
+  cout << endl;
+}
+
+// (COMPLETE)
+// read users from customers_account.txt
+// find the match user
+// delete the user's account
+void admin_optionC() {
+  string user,exit;
+  cout << "[Option C] entered" << endl;
+  cout << "Please input blacklist user: ";
+  cin >> user;
+  add_blacklist(user);
+  cout << endl;
+  cout << "Press E to exit: ";
+  cin >> exit;
+  cout << "Exiting [Option D]" << endl;
+  cout << "Back to main menu" << endl << endl;
+}
+
+// (COMPLETE)
+// add the user in a file called blacklist.txt
+// in the login process, if the account name is in customers_account.txt, while not in blacklist.txt,
+// if the password is correct, then login success
+void add_blacklist(string user) {
+  ofstream fout;
+  fout.open("blacklist.txt",ios::app);
+  if (fout.fail()) {
+    cout << "Failed in opening blacklist.txt" << endl;
+  }
+  fout << user << endl;
+  fout.close();
+}
